@@ -1,6 +1,10 @@
 # Reactjs基础环境搭建
 
-npm install
+1、安装nodejs
+
+2、cmd到工程下并输入：npm install
+
+3、执行打包命令：webpack
 
 包含了webpack、babel-jsx、babel-es6、reactjs等等的配置
 
