@@ -41,3 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+/01.react/node_modules
+/02.react-mobile/node_modules
+/03.react-pc/node_modules
