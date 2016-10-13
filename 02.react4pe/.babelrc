@@ -1,0 +1,9 @@
+{
+  "plugins": [
+	"transform-react-jsx",
+	"transform-es2015-modules-commonjs",
+	"transform-remove-strict-mode"
+  ],
+  "presets": ["es2015"],
+  "compact" : true
+}
