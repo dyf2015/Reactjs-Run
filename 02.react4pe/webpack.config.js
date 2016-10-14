@@ -1,4 +1,4 @@
-var appName = "csmobile";
+var appName = "esearch";
 
 var mode = "release";
 
@@ -53,15 +53,31 @@ var wp4ec = {
     },
     resolve: {
         extensions: ['', '.web.js', '.js', '.json'],
-    }
+    },
+    babel: {
+        plugins:[]
+    },
+    postcss: []
 };
+
+const pxtorem = require('postcss-pxtorem');
 
 if(apps[appName].outputlib) {
     wp4ec.output.library = apps[appName].outputlib.library;
     wp4ec.output.libraryTarget = apps[appName].outputlib.libraryTarget;
 }
 
-const pxtorem = require('postcss-pxtorem');
+if(appName.indexOf("mobile")>0) {
+    wp4ec.babel.plugins.push('transform-runtime');
+    wp4ec.babel.plugins.push(['antd', {
+      style: 'css',  // if true, use less
+      libraryName: 'antd-mobile'
+    }]);
+    wp4ec.postcss.push(pxtorem({
+      rootValue: 100,
+      propWhiteList: [],
+    }));
+}
 
 module.exports = "release"===mode?wp4ec:function(webpackConfig) {
   webpackConfig.entry = {index:apps[appName].entry};
@@ -85,5 +101,6 @@ module.exports = "release"===mode?wp4ec:function(webpackConfig) {
   else {
       webpackConfig.babel.plugins.push('antd');
   }
+  console.log(webpackConfig);
   return webpackConfig;
 };
