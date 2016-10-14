@@ -5,7 +5,7 @@
 
 * 借助nodejs进行前端模块化项目构建，所以需要在开发环境先安装
 
-##### （2）cmd 到工程下（ReactjsES6）并输入：npm install
+##### （2）cmd 到工程下（01.react）并输入：npm install
 
 * 部分windows环境需要先执行 npm install webpack -g ，不然会出现无法找到命令的问题
 
