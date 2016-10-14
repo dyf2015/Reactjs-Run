@@ -8,7 +8,8 @@ const apps = {
     "esearch":{
         entry:"./project/EC_FULLSEARCH/src4js/index.js",
         output:"./project/EC_FULLSEARCH/WebRoot/ecology/mobile/plugin/fullsearch/js/index.js",
-        styleUrl:"./project/EC_FULLSEARCH/WebRoot/ecology/mobile/plugin/fullsearch/css/index.css"
+        styleUrl:"./project/EC_FULLSEARCH/WebRoot/ecology/mobile/plugin/fullsearch/css/index.css",
+        ismobile:true
     }
 }
 
@@ -67,7 +68,7 @@ if(apps[appName].outputlib) {
     wp4ec.output.libraryTarget = apps[appName].outputlib.libraryTarget;
 }
 
-if(appName.indexOf("mobile")>0) {
+if(apps[appName].ismobile) {
     wp4ec.babel.plugins.push('transform-runtime');
     wp4ec.babel.plugins.push(['antd', {
       style: 'css',  // if true, use less
@@ -87,7 +88,7 @@ module.exports = "release"===mode?wp4ec:function(webpackConfig) {
         {'antd': 'antd'},
         {'weaCom':'weaCom'}
   ];
-  if(appName.indexOf("mobile")>0) {
+  if(apps[appName].ismobile) {
       webpackConfig.babel.plugins.push('transform-runtime');
       webpackConfig.babel.plugins.push(['antd', {
         style: 'css',  // if true, use less
@@ -101,6 +102,6 @@ module.exports = "release"===mode?wp4ec:function(webpackConfig) {
   else {
       webpackConfig.babel.plugins.push('antd');
   }
-  console.log(webpackConfig);
+  //console.log(webpackConfig);
   return webpackConfig;
 };
