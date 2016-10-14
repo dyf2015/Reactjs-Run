@@ -86,8 +86,8 @@ externals | 将某些库踢出打包后的js，使之能在全局引入，并且
 <script src="/cloudstore/resource/index.js" type="text/javascript" charset="utf-8"></script>
 <srcpit>
 var data = [ 
-{name: "homepage",type: "js",version: "v1.0.0",url: "/portal/project/index.js"},
-{name: "homepage",type: "js",version: "v1.0.0",url: "/portal/project/index.css"}
+{name: "homepagejs",type: "js",version: "v1.0.0",url: "/portal/project/index.js"},
+{name: "homepagecss",type: "css",version: "v1.0.0",url: "/portal/project/index.css"}
 ];
 LS.load(data);
 
