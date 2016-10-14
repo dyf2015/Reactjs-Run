@@ -7,7 +7,7 @@
 
 ##### （2）cmd 到工程下（ReactjsES6）并输入：npm install
 
-* 部分windows环境需要先执行 npm install webapck -g ，不然会出现无法找到命令的问题
+* 部分windows环境需要先执行 npm install webpack -g ，不然会出现无法找到命令的问题
 
 ##### （3）执行打包命令：webpack
 
@@ -23,7 +23,7 @@
 
 ##### （1）安装方式与入门脚手架的（1）~（2）相同
 
-##### （2）仅热编译、热部署（mode='release'）
+##### （2）【推荐方式】仅热编译、热部署（mode='release'）
 * 打包命令：webpack --watch
 * 打包配置：
 
@@ -133,7 +133,7 @@ LS.load(data);
 
 
 
-##### （3）本地无需启动后台服务、热编译、热部署、热更新（mode='debug'），此模式下必须跨域访问才能获取服务器数据
+##### （3）【非必要，可选方式】本地无需启动后台服务、热编译、热部署、热更新（mode='debug'），此模式下必须跨域访问才能获取服务器数据
 * 启动命令：npm start
 * 移动端debug html编写：
 
