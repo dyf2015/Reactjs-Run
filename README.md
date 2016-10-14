@@ -254,3 +254,5 @@ window.server | 跨域服务器，在代码里可以引用这个地址来用于�
 [webpack](http://webpack.github.io/) | 前端工程化打包、部署工具
 [promise](https://github.com/then/promise) | 异步编程库，让多异步请求业务更稳定易维护
 [fetch](https://github.com/github/fetch) | 默认集成promise的ajax库
+[antd](http://1x.ant.design/changelog) | antd组件库的PC版1.x，最低兼容到IE8
+[antd-mobile](https://mobile.ant.design/) | antd组件库MOBILE版
