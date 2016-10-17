@@ -47,9 +47,9 @@ var wp4ec = {
     module: {
       loaders: [
           { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-          { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader") },
+          { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader!postcss-loader", "css-loader!postcss-loader") },
           { test: /\.jpe?g$|\.gif$|\.eot$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$/,loader: "file" },
-          { test: /\.less$/,loader: ExtractTextPlugin.extract('css!less') }
+          { test: /\.less$/,loader: ExtractTextPlugin.extract('css!less!postcss-loader') }
       ]
     },
     resolve: {
