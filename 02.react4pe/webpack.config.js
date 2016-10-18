@@ -45,12 +45,12 @@ var wp4ec = {
         {'weaCom':'weaCom'}
     ],
     module: {
-      loaders: [
-          { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-          { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader!postcss-loader", "css-loader!postcss-loader") },
-          { test: /\.jpe?g$|\.gif$|\.eot$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$/,loader: "file" },
-          { test: /\.less$/,loader: ExtractTextPlugin.extract('css!less!postcss-loader') }
-      ]
+        loaders: [
+            { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader"+(apps[appName].ismobile?"!postcss-loader":""),"css-loader"+(apps[appName].ismobile?"!postcss-loader":""))},
+            { test: /\.jpe?g$|\.gif$|\.eot$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$/,loader: "file" },
+            { test: /\.less$/,loader: ExtractTextPlugin.extract("css!less"+(apps[appName].ismobile?"!postcss-loader":"")) }
+        ]
     },
     resolve: {
         extensions: ['', '.web.js', '.js', '.json'],
