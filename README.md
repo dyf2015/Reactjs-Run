@@ -5,7 +5,7 @@
 
 * 借助nodejs进行前端模块化项目构建，所以需要在开发环境先安装
 
-##### （2）cmd 到工程下（01.react）并输入：npm install
+##### （2）下载此项目并通过cmd 到工程下（01.react）并输入：npm install
 
 * 部分windows环境需要先执行 npm install webpack -g ，不然会出现无法找到命令的问题
 
@@ -161,7 +161,6 @@ LS.load(data);
         dpr = 1;
       }
       var scale = 1 / dpr;
-
       var metaEl = doc.querySelector('meta[name="viewport"]');
       if (!metaEl) {
         metaEl = doc.createElement('meta');
@@ -172,6 +171,9 @@ LS.load(data);
       doc.documentElement.style.fontSize = _baseFontSize / 2 * dpr * _fontscale + 'px';
       window.viewportScale = dpr;
     })();
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
   </script>
   <link rel="stylesheet" href="index.css"/>
 </head>
@@ -238,7 +240,7 @@ antd.min.css、antd.min.js | 蚂蚁金服前端组件库，使用的版本必须
 shim.min.js | antd兼容IE8、IE9
 jQuery.js | antd兼容IE8
 promise.js、fetch.js | 兼容IE8的fetch和promise
-com/index.js | 泛微自己封装的组件库，根据业务需要封装
+com/index.js | 泛微根据业务封装的组件库
 common.js、index.js、index.css | 源码打包后的文件
 window.server | 跨域服务器，在代码里可以引用这个地址来用于快速切换跨域路径
 ---
