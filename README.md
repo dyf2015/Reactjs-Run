@@ -111,7 +111,7 @@ LS.load(data);
 <head>
   <meta charset="utf-8">
   <title>本地调试</title>
-  <link rel="stylesheet" type="text/css" href="/cloudstore/resource/pc/antd/antd.min.css" />
+  <link rel="stylesheet" type="text/css" href="/cloudstore/resource/pc/com/index.min.css" />
   <!-- Polyfills -->
     <!--[if lt IE 10]>
     <script src="/cloudstore/resource/pc/shim/shim.min.js"></script>
@@ -123,10 +123,9 @@ LS.load(data);
   <div id="container"></div>
   <script src="/cloudstore/resource/pc/react/react-with-addons.min.js"></script>
   <script src="/cloudstore/resource/pc/react/react-dom.min.js"></script>
-  <script src="/cloudstore/resource/pc/antd/antd.min.js"></script>
   <script src="/cloudstore/resource/pc/promise/promise.min.js"></script>
   <script src="/cloudstore/resource/pc/fetch/fetch.min.js"></script>
-  <script src="/cloudstore/resource/pc/com/index.js"></script>
+  <script src="/cloudstore/resource/pc/com/index.min.js"></script>
   <script src="index.js"></script> <!-- webpack打包编译后的JS文件 -->
 </body>
 </html>
@@ -208,7 +207,7 @@ common.js、index.js、index.css | 源码打包后的文件
 <head>
   <meta charset="utf-8">
   <title>本地调试</title>
-  <link rel="stylesheet" type="text/css" href="http://ec.e-cology.cn/cloudstore/resource/pc/antd/antd.min.css" />
+  <link rel="stylesheet" type="text/css" href="http://ec.e-cology.cn/cloudstore/resource/pc/com/index.min.css" />
   <!-- Polyfills -->
     <!--[if lt IE 10]>
     <script src="http://ec.e-cology.cn/cloudstore/resource/pc/shim/shim.min.js"></script>
@@ -220,10 +219,9 @@ common.js、index.js、index.css | 源码打包后的文件
   <div id="container"></div>
   <script src="http://ec.e-cology.cn/cloudstore/resource/pc/react/react-with-addons.min.js"></script>
   <script src="http://ec.e-cology.cn/cloudstore/resource/pc/react/react-dom.min.js"></script>
-  <script src="http://ec.e-cology.cn/cloudstore/resource/pc/antd/antd.min.js"></script>
   <script src="http://ec.e-cology.cn/cloudstore/resource/pc/promise/promise.min.js"></script>
   <script src="http://ec.e-cology.cn/cloudstore/resource/pc/fetch/fetch.min.js"></script>
-  <script src="http://ec.e-cology.cn/cloudstore/resource/pc/com/index.js"></script>
+  <script src="http://ec.e-cology.cn/cloudstore/resource/pc/com/index.min.js"></script>
   <script type="text/javascript">
       //window.server = "http://192.168.40.3:8080"; //跨域服务器
       window.server = "http://ec.e-cology.cn";
