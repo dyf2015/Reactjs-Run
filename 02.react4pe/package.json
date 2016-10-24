@@ -3,8 +3,8 @@
     "index": "./index.jsx"
   },
   "dependencies": {
-    "antd": "^1.11.1",
-    "antd-mobile": "^0.9.2",
+    "antd": "^1.11.2",
+    "antd-mobile": "^0.9.3",
     "atool-build": "0.7.x",
     "axios": "^0.8.1",
     "babel": "^6.5.2",
@@ -45,6 +45,7 @@
     "promise": "^7.1.1",
     "raw-loader": "^0.5.1",
     "rc-queue-anim": "^0.12.5",
+    "rc-table": "^5.0.3",
     "react": "^0.14.8",
     "react-addons-css-transition-group": "^15.3.1",
     "react-dom": "^15.3.2",
@@ -89,7 +90,7 @@
   },
   "name": "md4pc",
   "description": "---",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "webpack.config.js",
   "author": "dyf",
   "license": "ISC"
