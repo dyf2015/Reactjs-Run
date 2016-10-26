@@ -1,4 +1,4 @@
-var appName = "csclient";
+var appName = "esearch";
 
 var mode = "release";
 
