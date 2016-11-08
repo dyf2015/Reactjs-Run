@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "antd": "^1.11.2",
-    "antd-mobile": "^0.9.4",
+    "antd-mobile": "^0.9.6",
     "atool-build": "0.7.x",
     "axios": "^0.8.1",
     "babel": "^6.5.2",
@@ -98,7 +98,7 @@
   },
   "name": "md4pc",
   "description": "---",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "webpack.config.js",
   "author": "dyf",
   "license": "ISC"
