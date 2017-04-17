@@ -3,10 +3,16 @@ var path = require('path');
 var webpack = require('webpack');
 var marked = require("marked");
 
-exports.create = function (obj, mode) {
+var CSSSplitWebpackPlugin = require("css-split-webpack-plugin").default;
+
+var es3ifyPlugin = require('es3ify-webpack-plugin');
+
+exports.create = function (obj, mode, node_env) {
+
+    node_env = node_env==""?null:node_env;
 
     var output = obj.output.split("/");
-    
+
     marked.setOptions({
         gfm: true,
         tables: true,
@@ -20,46 +26,75 @@ exports.create = function (obj, mode) {
     marked.setOptions({
         highlight: function (code) {
             //console.log("code:",code);
-            return require('highlight.js').highlightAuto(code, ["javascript", "html", "java"]).value;
+            return require('highlight.js').highlightAuto(code, ["javascript", "html", "java", "json"]).value;
         }
     });
 
     var renderer = new marked.Renderer();
 
+    var plugins = [];
+
+
+    if(node_env!="development") {
+        plugins.push(new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+                screw_ie8: false
+            },
+            mangle: { screw_ie8: false },
+            output: { screw_ie8: false }
+        }));
+    }
+
+    var styleUrl = obj.isOutput2Custom?obj.style2Custom:obj.styleUrl;
+
+    plugins.push(new ExtractTextPlugin(styleUrl, {
+        disable: obj.styleUrl ? false : true,
+        allChunks: true,
+    }));
+
+    if(!node_env) node_env = "production";
+    
+    plugins.push(new webpack.DefinePlugin({
+        'process.env.NODE_ENV': "'"+node_env+"'" //production
+    }));
+
+    if(obj.isCssSplit) plugins.push(new CSSSplitWebpackPlugin(
+        {
+            size: 3500,
+            filename:styleUrl.substring(0,styleUrl.length-4)+"-[part].[ext]"
+        }
+    ));
+
+    if(!obj.ismobile) plugins.push(new es3ifyPlugin());
+
     var wp4ec = {
         entry: obj.entry,
         output: {
-            filename: obj.output
+            filename: obj.isOutput2Custom?obj.output2Custom:obj.output
         },
-        plugins: [
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                }
-            }),
-            new ExtractTextPlugin(obj.styleUrl, {
-                disable: obj.styleUrl ? false : true,
-                allChunks: true,
-            }),
-            new webpack.DefinePlugin({
-                'process.env.NODE_ENV': "'production'" //production
-            })
-        ],
+        plugins: plugins,
         externals: [
             { 'react': 'React' },
             { 'react-dom': 'ReactDOM' },
             { 'antd': 'antd' },
             { 'weaCom': 'weaCom' },
-            { 'jquery': 'jQuery' }
+            { 'ecCom': 'ecCom' },
+            { 'weaWorkflow': 'weaWorkflow' },
+            { 'weaPortal': 'weaPortal' },
+            { 'jquery': 'jQuery' },
+            { '$': '$'}
         ],
         module: {
             loaders: [
                 { test: /\.md$/, loader: "html!markdown" },
-                { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-                { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' },
-                { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader" + (obj.ismobile ? "!postcss-loader" : ""), "css-loader" + (obj.ismobile ? "!postcss-loader" : "")) },
+                { test: /\.js$/, loader: 'babel-loader' },
+                { test: /\.jsx$/, loader: 'babel-loader' },
+                { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"+(obj.ismobile?"!postcss-loader?sourceMap=inline":"")) },
+                //{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader" + (obj.ismobile ? "!postcss-loader" : ""), "css-loader" + (obj.ismobile ? "!postcss-loader" : "")) },
                 { test: /\.jpe?g$|\.gif$|\.eot$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$/, loader: "file" },
-                { test: /\.less$/, loader: ExtractTextPlugin.extract("css!less" + (obj.ismobile ? "!postcss-loader" : "")) }
+                { test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"+(obj.ismobile?"!postcss-loader":"")+"!less-loader") }
+                //{ test: /\.less$/, loader: ExtractTextPlugin.extract("css!less" + (obj.ismobile ? "" : "")) }
             ]
         },
         resolve: {
@@ -93,6 +128,12 @@ exports.create = function (obj, mode) {
         }));
         //console.log("wp4ec:",wp4ec);
     }
+    else {
+        wp4ec.babel.plugins.push(['antd', {
+            style: 'style',  // if true, use less
+            libraryName: 'newporject'
+        }]);
+    }
     return "release" === mode ? wp4ec : function (webpackConfig) {
         webpackConfig.entry = { index: obj.entry };
         webpackConfig.externals = [
@@ -113,9 +154,15 @@ exports.create = function (obj, mode) {
             }));
         }
         else {
+        	//移除common.js
+			if (webpackConfig.plugins[0].chunkNames === 'common') {
+		    	webpackConfig.plugins.shift();
+			}
             webpackConfig.babel.plugins.push('antd');
         }
-        //console.log(webpackConfig.module.loaders);
+        webpackConfig.module.loaders[0].query.cacheDirectory = "/Users/daiyingfeng/Projects/tmp";
+        webpackConfig.module.loaders[1].query.cacheDirectory = "/Users/daiyingfeng/Projects/tmp";
+        console.log(webpackConfig);
         return webpackConfig;
     };
 }

@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MobileDemo</title>
-  <script>
-    (function (baseFontSize, fontscale) {
-      var _baseFontSize = baseFontSize || 100;
-      var _fontscale = fontscale || 1;
-      var win = window;
-      var doc = win.document;
-      var ua = navigator.userAgent;
-      var matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
-      var UCversion = ua.match(/U3\/((\d+|\.){5,})/i);
-      var isUCHd = UCversion && parseInt(UCversion[1].split('.').join(''), 10) >= 80;
-      var isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
-      var dpr = win.devicePixelRatio || 1;
-      if (!isIos && !(matches && matches[1] > 534) && !isUCHd) {
-        // 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;
-        dpr = 1;
-      }
-      var scale = 1 / dpr;
 
-      var metaEl = doc.querySelector('meta[name="viewport"]');
-      if (!metaEl) {
-        metaEl = doc.createElement('meta');
-        metaEl.setAttribute('name', 'viewport');
-        doc.head.appendChild(metaEl);
-      }
-      metaEl.setAttribute('content', 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
-      doc.documentElement.style.fontSize = _baseFontSize / 2 * dpr * _fontscale + 'px';
-      window.viewportScale = dpr;
-    })();
-  </script>
-  <link rel="stylesheet" href="index.css"/>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<title>MobileDemo</title>
+		<script type="text/javascript">
+			(function(baseFontSize, fontscale) {
+				var _baseFontSize = baseFontSize || 100;
+				var _fontscale = fontscale || 1;
+				var win = window;
+				var doc = win.document;
+				var ua = navigator.userAgent;
+				var matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+				var UCversion = ua.match(/U3\/((\d+|\.){5,})/i);
+				var isUCHd = UCversion && parseInt(UCversion[1].split('.').join(''), 10) >= 80;
+				var isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
+				var dpr = win.devicePixelRatio || 1;
+				if(!isIos && !(matches && matches[1] > 534) && !isUCHd) {
+					// 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;
+					dpr = 1;
+				}
+				var scale = 1 / dpr;
 
-<div id="container"></div>
-<script type="text/javascript" src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
-<script>
-  FastClick.attach(document.body);
-</script>
-<script src="http://daiyingfeng.com/views/m/js/react-with-addons.min.js"></script>
-<script src="http://daiyingfeng.com/views/m/js/react-dom.min.js"></script>
-<script src="common.js"></script>
-<script src="index.js"></script>
+				var metaEl = doc.querySelector('meta[name="viewport"]');
+				if(!metaEl) {
+					metaEl = doc.createElement('meta');
+					metaEl.setAttribute('name', 'viewport');
+					doc.head.appendChild(metaEl);
+				}
+				metaEl.setAttribute('content', 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
+				doc.documentElement.style.fontSize = _baseFontSize / 2 * dpr * _fontscale + 'px';
+				window.viewportScale = dpr;
+			})();
+		</script>
+		<!--<script src="rem-dpr-debug.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<link rel="stylesheet" href="index.css" />
+	</head>
 
-</body>
+	<body>
+
+		<div id="container"></div>
+		<div id="params" style="display:none"></div>
+		<!--<div id="params" style="display:none">
+		{"role":"member","member":{"ec_id":"1","lasttime":"","lm_id":"0c21030d-bbdd-4681-b4cf-c6e2c3fbec4d","m_Comname":"E8TEST","m_Qid":"","m_branch":"","m_department":"","m_email":"","m_id":"6f125b67-fcd9-49c8-b82d-ebe610f8fd0e","m_isDe":"","m_isMa":"","m_license":"","m_mobile":"","m_name":"系统管理员","m_passw":"","m_position":"","m_role":"","m_sex":"0","m_status":"","m_tel":"","m_times":"","m_user":"sysadmin","m_usestatus":"","mamageid":"","offset":0,"pageSize":0,"r_id":""},"token":{"access_token":"d300e617-7466-447b-a111-7f0f80802bea","refresh_token":""},"url":"","isNew":"","isMobile":"false","path":null}
+		</div>-->
+		<script type="text/javascript" src="http://daiyingfeng.com/views/m/js/fastclick.js"></script>
+		<script>
+			FastClick.attach(document.body);
+		</script>
+		<script src="http://daiyingfeng.com/views/m/js/react-with-addons.min.js"></script>
+		<script src="http://daiyingfeng.com/views/m/js/react-dom.min.js"></script>
+		<script type="text/javascript">
+			window.server = 'http://www.daiyingfeng.com';
+		</script>
+		<script src="common.js"></script>
+		<script src="index.js"></script>
+	</body>
+
 </html>
