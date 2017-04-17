@@ -1,0 +1,382 @@
+html,body{
+	overflow: hidden;
+}
+#container{
+	min-width: 1200px;
+	height: 100%;
+}
+.Breadcrumb {
+	padding-top:20px;
+	padding-left:10px;
+	padding-right:20px;
+    margin-left: 30px;
+}
+
+.Container {
+	padding:10px;
+}
+
+.Banner {
+	padding:50px;
+	width:100%;
+	height:697px;
+	background-image:url("/cloudstore/images/store/banner.jpg");
+	background-position:50% 50%;
+}
+
+.appImg {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  background: #eee;
+  display: inline-block;
+}
+
+.appRow {
+	border: 1px solid #d9d9d9;
+    border-radius: 6px;
+}
+
+.appContainer {
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+
+.appCol {
+	padding: 10px;
+}
+
+.appDivHead {
+	text-align:center;
+	margin:0 auto;
+	/*border-right: 1px solid #d9d9d9;*/
+}
+
+.NAContainer{
+    width:1170;
+    margin: 0px auto;
+}
+#mydiv{
+    border: 1px solid #e9e9e9;
+    padding: 30px 15px 50px 30px;
+    border-radius:15px;   
+}
+.innerimage{
+    width:152px;
+    height: 152px;
+    background-size: 100%;
+    background-position: center;
+   	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+.innerimageBody{
+    width: 100%;
+    height: 49px;
+    padding: 10px;
+    font-weight: 600;
+   
+}
+.innerimageBody p:first-of-type{
+	text-align: left;
+}
+.innerimageBody p:last-of-type{
+	text-align: right;
+}
+/*.innerimageBody p {
+	display: inline-block;
+	
+}*/
+.innerimageFooter{
+    /*position:relative;
+    width: 100%;
+    height: 49px;*/
+    border-bottom: 1px solid #d2d2d2;
+    
+}
+
+.innerimageFooter1{
+    /*position:relative;*/
+    border-bottom: 1px solid #d2d2d2;
+    /*background-color:#f9f9f9;
+    width:100%;
+    height:49px;*/
+}
+.imgframe{
+    width:152px;
+    margin: 0px auto;
+    height: 152px;
+    /*border-bottom: 1px solid #d2d2d2;*/
+   
+}
+
+.imgframemove{
+    width:152px;
+    margin: 0px auto;
+    height: 152px;
+    /*border: 1px solid #d2d2d2;*/
+    cursor:pointer;
+}
+.imgbody{
+    background-color: rgb(255,255,255);
+    width:20%;
+    height:275px;
+    margin: 0px auto;
+    float: left;
+}
+
+
+
+
+.imgdiv{
+    background-color: rgb(255,255,255);
+    width:98%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height:auto;
+    padding: 30px 0px;
+    border-radius:15px;
+}
+
+.cs-pagination{
+    display:inline-block;
+    margin-top: 40px;
+    margin-left:5%;
+    width:100%;
+}
+
+.showbackground{
+    background-color: red;
+}
+.tabDiv{
+    height: auto;
+    background-color: rgb(255,255,255);
+
+}
+.tabStyle{
+    background-color: #f9f9f9;
+    box-sizing:border-box;
+    border:1px solid #e9e9e9; 
+    border-radius:15px; 
+    padding:15px 15px 15px 15px;
+
+}
+
+.foottheme{
+    text-align: right;
+    margin-right: 20px;
+}
+
+/*.version{
+    line-height: 49px;
+    color: green;
+    position: absolute;
+    left: 5px;
+}*/
+
+div[data-reactid=".0.$newapps"]{ 
+    background-color: #f9f9f9;
+    height: 100%;
+}   
+
+.codetitle{
+    font-size: 13px;
+    font-weight:bold;
+}
+
+.test{
+    padding-left: 10px;
+}
+
+.paddingtext{
+    padding-left: 0px;
+    height: 40px;
+    line-height: 40px;
+}
+
+div[data-reactid=".0.$init"]{
+    background-color: #f9f9f9;
+    height: 100%; 
+}
+
+.initdiv{
+    width: 98%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 30px 15px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+div[data-reactid=".0.$auth"]{
+    background-color: #f9f9f9;
+    height: 100%; 
+}
+.Authdiv{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 30px 15px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+div[data-reactid=".0.$roleList"]{
+    background-color: #f9f9f9;
+    height: 100%; 
+}
+.RoleListdiv{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 20px 15px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+div[data-reactid=".0.$mode"]{
+    background-color: #f9f9f9;
+    height: 100%; 
+}
+
+.inoutdiv{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 20px 15px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+div[data-reactid=".0.$roleList/add"]{
+    background-color: #f9f9f9;
+    height: 100%; 
+}
+.rolediv{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 30px 15px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* loadding */
+.cs-gloading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, .4);
+    z-index: 111111111
+}
+
+.cs-gloading div{
+    animation-iteration-count: infinite;
+    background: #fcc03b;
+    border-radius: 60%;
+    position: absolute;
+    left: 50%;
+    top: 30%;;
+    margin-left: -3rem;
+    margin-top: -3rem;
+    width: 5.9375rem;
+    height: 5.9375rem;
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(0.2, 0.2, 0.2)
+    }
+
+    to {
+        opacity: 1
+    }
+}
+.spinnerWrapper {
+  position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    width: 84px;
+    height:84px;
+    background: rgba(0, 0, 0, .24);
+    border-radius: 6px;
+    margin-top: -38px;
+    margin-left: -38px;
+}
+.spinner {
+    position: absolute;
+    left: 15px;
+    top: 17px;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 10px;
+}
+ 
+.spinner > div {
+  background-color: #278ddc;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+   margin-left: 4px;
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+ 
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+ 
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+ 
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+ 
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+  20% { -webkit-transform: scaleY(1.0) }
+}
+ 
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+/* loadding */
+#container {
+    background-color: #f9f9f9;
+    height:100%;
+}
+
+.testtesttest>div>div{
+	width:15%;
+	float: left;
+}

@@ -1,0 +1,84 @@
+
+div#clearfix{
+    margin:5,20;
+}
+
+.ant-badge-count {
+    margin-left: 11px;
+}
+
+.form-item-full .ant-form-item {
+    width:100%;
+}
+
+.form-item-full .ant-search-input {
+    width:100%;
+}
+
+div#modal{
+    background-color:rgb(244,244,244);
+    margin-bottom: 5px;
+  
+}
+
+
+input.required{border:#999 1px solid; height:16px; width:120px;}
+label{text-align:right;margin-left: 0px; float:left;}
+
+
+
+span.InputGroup{
+text-align: right;
+display: inline-block;
+width:80px;
+font-size:12px;
+}
+
+#fuck{
+    line-height: 32px;
+}
+
+.formcenter {
+ vertical-align: middle;
+}
+
+#why{
+    padding-bottom: 15px;
+    line-height: 63px;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: rgb(247,247,247);
+    border: 1px solid rgb(232,232,232);
+    border-radius: 4px;
+    padding: 5px 23px;
+    overflow: hidden;
+    color: rgb(102,102,102);
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 120px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+
+#btt{
+    border-bottom: 1px solid #d9d9d9;
+}
+
+#yellowfont{
+    color: blue;
+}
