@@ -1,4 +1,4 @@
-## 一、React相关脚手架
+## 一、E9前端开发手册
 #### 1、E9下如何开始一个react项目
 ##### （1）安装nodejs
 ##### （2）下载脚手架：https://github.com/dyf2015/Reactjs-Run/tree/master/02.react4pe
