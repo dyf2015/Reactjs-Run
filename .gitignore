@@ -45,3 +45,7 @@ Temporary Items
 /01.react/node_modules
 /02.react-mobile/node_modules
 /03.react-pc/node_modules
+.idea/workspace.xml
+02.react4pe/node_modules/
+03.react&router/
+04.react&router&redux/

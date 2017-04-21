@@ -1,14 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { render } from 'react-dom'
-//const ReactRouter = require('react-router');
-//let { Router, Route, Link ,browserHistory, useRouterHistory } from 'react-router';
 import Router from 'react-router/lib/Router'
 import Route from 'react-router/lib/Route'
-import browserHistory from 'react-router/lib/browserHistory'
 import useRouterHistory from 'react-router/lib/useRouterHistory'
 
 import { createHistory, useBasename, createHashHistory } from 'history'
-import { Breadcrumb } from 'antd'
 
 import Home from './components/Home'
 import Salary from './components/Salary'
