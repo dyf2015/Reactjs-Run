@@ -1,5 +1,16 @@
 ## 一、React相关脚手架
-#### 1、入门学习脚手架（ES6、React）
+#### 1、E9下如何开始一个react项目
+##### （1）安装nodejs
+##### （2）下载脚手架：https://github.com/dyf2015/Reactjs-Run/tree/master/02.react4pe
+##### （3）安装依赖库：npm install、npm install webpack@1.13.2 -g--save
+##### （4）配置webpack，制定你打包路径，源码entry和输出output
+##### （5）写页面jsp、html，参考本文档【PC端发布环境html、JSP】，e9流程页面svn：/spa/workflow/index.html
+##### （6）定义一个div id=container
+##### （7）写react js代码，在entry指向的位置
+##### （8）cmd下执行webpack
+##### （9）在页面上看到结果
+
+#### 2、入门学习脚手架（ES6、React）
 
 ##### （1）安装 [nodejs](https://nodejs.org/en/ "Title")
 
@@ -13,24 +24,31 @@
 
 * 执行后生成可运行文件run.js
 
-##### （4）打开index.html即可看到运行结果
+##### （4）打开index.html即可看到运行结果****
 
 * 本示例供初学者入门使用，使用记得star，谢谢！
 
 ---
 
-#### 2、生产环境脚手架（ES6、React、Router、Redux）
+#### 3、EC生产环境脚手架（ES6、React、Router、Redux）
 
 ##### （1）安装方式与入门脚手架的（1）~（2）相同
 
 ##### （2）【推荐方式】仅热编译、热部署（mode='release'）
 * 打包命令：webpack --watch
-* 打包配置：
+* 打包配置（必要）：
 
 参数 | 说明
 ---|---
 entry | 前端源码位置，注意此位置必须在脚手架目录内
 output | 编译后可运行js文件位置，通常是你生产环境位置
+isOutput2Custom | 是否导出到自定义路径
+output2Custom | 导出的自定义路径地址
+
+* 打包配置（扩展）：
+
+参数 | 说明
+---|---
 styleUrl | 编译后后可运行css文件位置，通常是你生产环境的位置
 outputlib | webpack打包后的js都是一个大的闭包，如果需要将某些API暴露，则配置此参数即可
 ismobile | 是否是mobile应用，不填则默认为否
