@@ -2,7 +2,7 @@
 #### 1、E9下如何开始一个react项目
 ##### （1）安装nodejs
 ##### （2）下载脚手架：https://github.com/dyf2015/Reactjs-Run/tree/master/02.react4pe
-##### （3）安装依赖库：npm install、npm install webpack@1.13.2 -g--save
+##### （3）安装依赖库：npm install、npm install webpack@1.13.2 -g--save，部分环境会出现安装不全的问题，需要手工把没安装成功的一个个装上去
 ##### （4）配置webpack，制定你打包路径，源码entry和输出output
 ##### （5）写页面jsp、html，参考本文档【PC端发布环境html、JSP】，e9流程页面svn：/spa/workflow/index.html
 ##### （6）定义一个div id=container
