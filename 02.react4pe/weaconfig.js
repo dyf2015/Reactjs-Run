@@ -54,7 +54,7 @@ exports.create = function (obj, mode, node_env) {
     }));
 
     if(!node_env) node_env = "production";
-    
+
     plugins.push(new webpack.DefinePlugin({
         'process.env.NODE_ENV': "'"+node_env+"'" //production
     }));
@@ -88,8 +88,8 @@ exports.create = function (obj, mode, node_env) {
         module: {
             loaders: [
                 { test: /\.md$/, loader: "html!markdown" },
-                { test: /\.js$/, loader: 'babel-loader' },
-                { test: /\.jsx$/, loader: 'babel-loader' },
+                { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+                { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' },
                 { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"+(obj.ismobile?"!postcss-loader?sourceMap=inline":"")) },
                 //{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader" + (obj.ismobile ? "!postcss-loader" : ""), "css-loader" + (obj.ismobile ? "!postcss-loader" : "")) },
                 { test: /\.jpe?g$|\.gif$|\.eot$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$/, loader: "file" },
