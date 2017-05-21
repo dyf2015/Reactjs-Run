@@ -41,6 +41,7 @@ exports.create = function (obj, mode, node_env) {
                 warnings: false,
                 screw_ie8: false
             },
+            sourceMap: true,
             mangle: { screw_ie8: false },
             output: { screw_ie8: false }
         }));
@@ -73,6 +74,7 @@ exports.create = function (obj, mode, node_env) {
         output: {
             filename: obj.isOutput2Custom?obj.output2Custom:obj.output
         },
+        devtool:'source-map',
         plugins: plugins,
         externals: [
             { 'react': 'React' },
