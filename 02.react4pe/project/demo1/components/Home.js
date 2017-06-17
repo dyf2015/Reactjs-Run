@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Link from 'react-router/lib/Link'
-import {Row,Col} from 'antd'
-
-import {Card} from 'newporject'
+import {Row,Col,Card} from 'antd'
 
 class Home extends Component {
 	render() {
