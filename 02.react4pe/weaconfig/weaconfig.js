@@ -34,7 +34,6 @@ exports.create = function (obj, mode, node_env) {
 
     var plugins = [];
 
-
     if(node_env!="development") {
         plugins.push(new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -55,7 +54,7 @@ exports.create = function (obj, mode, node_env) {
     }));
 
     if(!node_env) node_env = "production";
-
+    //console.log(node_env);
     plugins.push(new webpack.DefinePlugin({
         'process.env.NODE_ENV': "'"+node_env+"'" //production
     }));
@@ -68,6 +67,55 @@ exports.create = function (obj, mode, node_env) {
     ));
 
     if(!obj.ismobile) plugins.push(new es3ifyPlugin());
+
+    let babelQuery = {
+        "plugins": [
+            "transform-react-jsx",
+            "transform-es2015-modules-commonjs",
+            "transform-remove-strict-mode",
+            "transform-decorators-legacy"
+        ],
+        "presets": ["es2015","react","stage-0"],
+        "compact" : true
+    }
+
+    if(node_env==="development") {
+        babelQuery["env"] = {
+            // only enable it when process.env.NODE_ENV is 'development' or undefined
+            "development": {
+            "plugins": [["react-transform", {
+                "transforms": [{
+                "transform": "react-transform-catch-errors",
+                // now go the imports!
+                "imports": [
+
+                    // the first import is your React distribution
+                    // (if you use React Native, pass "react-native" instead)
+
+                    "react",
+
+                    // the second import is the React component to render error
+                    // (it can be a local path too, like "./src/ErrorReporter")
+
+                    "redbox-react"
+
+                    // the third import is OPTIONAL!
+                    // when specified, its export is used as options to the reporter.
+                    // see specific reporter's docs for the options it needs.
+
+                    // it will be imported from different files so it either has to be a Node module
+                    // or a file that you configure with Webpack/Browserify/SystemJS to resolve correctly.
+                    // for example, see https://github.com/gaearon/babel-plugin-react-transform/pull/28#issuecomment-144536185
+
+                    // , "my-reporter-options"
+                ]
+                }]
+                // note: you can put more transforms into array
+                // this is just one of them!
+            }]]
+            }
+        }
+    }
 
     var wp4ec = {
         entry: obj.entry,
@@ -88,15 +136,28 @@ exports.create = function (obj, mode, node_env) {
             { '$': '$'}
         ],
         module: {
+            // preLoaders: [
+            //     {
+            //         test: /\.(js|jsx)$/,
+            //         exclude: /node_modules/,
+            //         loader: 'eslint',
+            //         //include: paths.appSrc,
+            //     }
+            // ],
             loaders: [
                 { test: /\.md$/, loader: "html!markdown" },
-                { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-                { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' },
+                { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader', query: babelQuery },
                 { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"+(obj.ismobile?"!postcss-loader?sourceMap=inline":"")) },
                 //{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader" + (obj.ismobile ? "!postcss-loader" : ""), "css-loader" + (obj.ismobile ? "!postcss-loader" : "")) },
                 { test: /\.jpe?g$|\.gif$|\.eot$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$/, loader: "file" },
                 { test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader"+(obj.ismobile?"!postcss-loader":"")+"!less-loader") }
                 //{ test: /\.less$/, loader: ExtractTextPlugin.extract("css!less" + (obj.ismobile ? "" : "")) }
+            ],
+            postLoaders: [
+                {
+                test: /\.(js|jsx)$/,
+                loader: 'export-from-ie8/loader'
+                }
             ]
         },
         resolve: {
@@ -162,9 +223,9 @@ exports.create = function (obj, mode, node_env) {
 			}
             webpackConfig.babel.plugins.push('antd');
         }
-        webpackConfig.module.loaders[0].query.cacheDirectory = "/Users/daiyingfeng/Projects/tmp";
-        webpackConfig.module.loaders[1].query.cacheDirectory = "/Users/daiyingfeng/Projects/tmp";
-        console.log(webpackConfig);
+        webpackConfig.module.loaders[0].query.cacheDirectory = "./tmp";
+        webpackConfig.module.loaders[1].query.cacheDirectory = "./tmp";
+        //console.log(webpackConfig);
         return webpackConfig;
     };
 }
