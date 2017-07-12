@@ -68,7 +68,7 @@ exports.create = function (obj, mode, node_env) {
 
     if(!obj.ismobile) plugins.push(new es3ifyPlugin());
 
-    let babelQuery = {
+    var babelQuery = {
         "plugins": [
             "transform-react-jsx",
             "transform-es2015-modules-commonjs",
